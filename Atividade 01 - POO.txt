@@ -1,0 +1,19 @@
+Atividade 01 - POO
+
+1) O que é programação orientada a objetos?
+   A Programação Orientada a Objetos é um paradigma da programação focada em construir código em torno de objetos, com classes, métodos e propriedades que representam entidades do mundo real.
+
+2) Quais as vantagens em utilizar POO em relação a programação estruturada?
+   As vantagens em utilizar POO são encontradas na reutilização de código, modularidade e fácil manutenção, facilitando a gestão de projetos complexos. Através do encapsulamentom, colaboração eficiente e modelagem realista, a POO se estabeleceu como um paradigma essencial na construção de sistemas de software modernos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+3) Defina o conceito de objeto no paradigma POO
+   Um objeto nada mais é que uma instância de uma classe, classe essa que representa uma entidade concreta ou abstrata do mundo real dentro do software por meio de atributos e métodos.
+
+4) Explique os 4 principais fundamentos  do paradigma POO
+
+- Abstração: Consiste em focar nos aspectos essenciais de um objeto ignorando detalhes irrelevantes, modelando caraterísticas do mundo real em classes
+
+- Encapsulamento: Esconde os detalhes internos de funcionamento de uma classe e protege os dados, restringindo o acesso direto aos atributos, permitindo modificações apenas via métodos públicos.
+
+- Herança: Permite que uma classe (subclasse/filha) herde os atributos e métodos de outra classe (superclasse/pai), facilitando o reuso de código.
+
+- Polimorfismo: Capacidade de objetos de diferentes subclasses herdarem o mesmo método da superclasse, mas implementarem comportamentos específicos para aquele método.
