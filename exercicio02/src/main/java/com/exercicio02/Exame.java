@@ -3,9 +3,44 @@ package com.exercicio02;
 import java.time.LocalDate;
 
 public class Exame {
-    public Consulta consulta;
-    public LocalDate data;
-    public String descritivo;
+    private Consulta consulta;
+    private LocalDate data;
+    private String descritivo;
+
+    
+
+    public Exame(Consulta consulta, LocalDate data, String descritivo) {
+        this.consulta = consulta;
+        this.data = data;
+        this.descritivo = descritivo;
+    }
+
+    public Exame() {
+    }
+
+    public Consulta getConsulta() {
+        return consulta;
+    }
+
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
+
+    public LocalDate getData() {
+        return data;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public String getDescritivo() {
+        return descritivo;
+    }
+
+    public void setDescritivo(String descritivo) {
+        this.descritivo = descritivo;
+    }
 
     public void solicitar() {
 

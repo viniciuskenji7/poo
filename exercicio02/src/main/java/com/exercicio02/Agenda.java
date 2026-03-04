@@ -5,10 +5,70 @@ import java.time.LocalTime;
 
 public class Agenda {
     // Preciso implementar Interface futuramente
-    public LocalDate data;
-    public LocalTime hora;
-    public Medico medico;
-    public Paciente paciente;
+    private LocalDate data;
+    private LocalTime hora;
+    private Medico medico;
+    private Paciente paciente;
+
+    public Agenda(LocalDate data, LocalTime hora, Medico medico, Paciente paciente) {
+        this.data = data;
+        this.hora = hora;
+        this.medico = medico;
+        this.paciente = paciente;
+    }
+
+    public Agenda() {
+    }
+
+    
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+
+
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
+    }
+
+
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
+    }
+
+
+
+    public LocalDate getData() {
+        return data;
+    }
+
+
+
+    public LocalTime getHora() {
+        return hora;
+    }
+
+
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+
 
     public void consultar() {
         System.out.println("Data: " + this.data);
