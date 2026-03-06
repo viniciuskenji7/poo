@@ -6,13 +6,15 @@ public class Paciente {
     private String telefone;
     private String genero;
     private int idade;
-
+    private String email;
+    
     public Paciente(String nome, String cpf, String telefone, String genero, int idade) {
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.genero = genero;
         this.idade = idade;
+        
     }
 
     public Paciente() {};
@@ -34,7 +36,7 @@ public class Paciente {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome){
         this.nome = nome;
     }
 
@@ -68,5 +70,19 @@ public class Paciente {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+
+
+    public void setEmail(String email) throws Exception {
+        if (email == null || email.length() < 6 || !email.contains("@")) {
+            throw new Exception("Email completo obrigatório");
+        } else {
+            this.email = email;
+        }
     }
 }
