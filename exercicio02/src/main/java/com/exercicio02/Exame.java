@@ -38,8 +38,12 @@ public class Exame {
         return descritivo;
     }
 
-    public void setDescritivo(String descritivo) {
-        this.descritivo = descritivo;
+    public void setDescritivo(String descritivo) throws Exception {
+        if (descritivo.length() <= 2) {
+            throw new Exception("Descritivo invalido");
+        } else {
+            this.descritivo = descritivo;
+        }
     }
 
     public void solicitar() {

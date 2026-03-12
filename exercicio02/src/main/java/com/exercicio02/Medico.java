@@ -29,8 +29,12 @@ public class Medico {
         return crm;
     }
 
-    public void setCrm(String crm) {
-        this.crm = crm;
+    public void setCrm(String crm) throws Exception {
+        if(crm.length() < 6) {
+            throw new Exception("O crm é invalido");
+        } else {
+            this.crm = crm;
+        }
     }
 
     public String getTelefone() {
