@@ -1,23 +1,40 @@
 package com.exercicio02;
-
 public class Recepcionista {
     private String nome;
     private String cpf;
     private String telefone;
     private String senha;
-
+    
+    public boolean possuiEspeciais(String s) {
+        if (s == null || s.isEmpty()) return false;
+        
+        for (char c : s.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public Recepcionista(String nome, String cpf, String telefone, String senha) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.senha = senha;
+        try {
+            this.setNome(nome);
+            this.setCpf(cpf);
+            this.setSenha(senha);
+            this.setTelefone(telefone);
+        } catch (Exception e) {
+            System.out.println("Erro ao criar Recepcionista - " + e.getMessage());
+        }
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public void setNome(String nome) throws Exception {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.nome = nome;
     }
 
@@ -25,7 +42,10 @@ public class Recepcionista {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(String cpf) throws Exception {
+        if (cpf.length() < 11 || cpf.trim().isEmpty()) {
+            throw new Exception("Este CPF é inválido");
+        }
         this.cpf = cpf;
     }
 
@@ -33,7 +53,10 @@ public class Recepcionista {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(String telefone) throws Exception {
+        if (telefone.length() < 11 || telefone.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.telefone = telefone;
     }
 
@@ -43,7 +66,10 @@ public class Recepcionista {
 
     public Recepcionista(){}
 
-    public String setSenha(String senha) {
+    public String setSenha(String senha) throws Exception {
+        if (senha.length() < 8 || !possuiEspeciais(senha)) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         return this.senha = senha;
     }
 

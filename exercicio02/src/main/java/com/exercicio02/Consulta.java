@@ -43,7 +43,11 @@ public class Consulta {
         return medico;
     }
 
-    public void setMedico(Medico medico) {
+    public void setMedico(Medico medico, String crmDigitado) throws Exception {
+        if (!crmDigitado.equals(medico.getCrm())) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
+
         this.medico = medico;
     }
 

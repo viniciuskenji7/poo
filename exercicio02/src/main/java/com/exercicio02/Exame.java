@@ -39,8 +39,8 @@ public class Exame {
     }
 
     public void setDescritivo(String descritivo) throws Exception {
-        if (descritivo.length() <= 2) {
-            throw new Exception("Descritivo invalido");
+        if (descritivo.length() <= 2 || descritivo.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
         } else {
             this.descritivo = descritivo;
         }

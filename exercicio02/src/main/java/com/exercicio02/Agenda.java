@@ -40,7 +40,10 @@ public class Agenda {
 
 
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(Paciente paciente, String cpfDigitado) throws Exception {
+        if(!cpfDigitado.equals(paciente.getCpf())) {
+            throw new Exception("O CPF informado é inválido");
+        }
         this.paciente = paciente;
     }
 

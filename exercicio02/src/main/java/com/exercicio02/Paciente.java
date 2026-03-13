@@ -9,12 +9,16 @@ public class Paciente {
     private String email;
     
     public Paciente(String nome, String cpf, String telefone, String genero, int idade) {
-        this.nome = nome;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.genero = genero;
-        this.idade = idade;
-        
+        try {
+            this.setNome(nome);
+            this.setCpf(cpf);
+            this.setTelefone(telefone);
+            this.setGenero(genero);
+            this.setIdade(idade);
+            cadastrar();
+        } catch (Exception e) {
+            System.out.println("Erro ao criar Paciente - " + e.getMessage());
+        }
     }
 
     public Paciente() {};
@@ -36,7 +40,10 @@ public class Paciente {
         return nome;
     }
 
-    public void setNome(String nome){
+    public void setNome(String nome) throws Exception{
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.nome = nome;
     }
 
@@ -44,7 +51,11 @@ public class Paciente {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
+    public void setCpf(String cpf) throws Exception {
+        if (cpf.length() < 11 || cpf.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
+
         this.cpf = cpf;
     }
 
@@ -52,7 +63,10 @@ public class Paciente {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(String telefone) throws Exception {
+        if (telefone.length() < 11 || telefone.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.telefone = telefone;
     }
 
@@ -60,7 +74,10 @@ public class Paciente {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(String genero) throws Exception {
+        if (genero == null || genero.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.genero = genero;
     }
 
@@ -68,14 +85,16 @@ public class Paciente {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(int idade) throws Exception {
+        if (idade <= 0) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.idade = idade;
     }
 
     public String getEmail() {
         return email;
     }
-
 
 
     public void setEmail(String email) throws Exception {
