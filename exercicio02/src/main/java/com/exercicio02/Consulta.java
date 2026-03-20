@@ -2,14 +2,44 @@ package com.exercicio02;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Consulta {
     private LocalDate data;
     private LocalTime hora;
     private Medico medico;
+    private Recepcionista recepcionista;
     private Paciente paciente;
     private String motivo;
     private String historico;
+    private List<Receita> receitas = new ArrayList<>();
+    private List<Exame> exames = new ArrayList<>();
+
+
+    public List<Receita> getReceitas() {
+        return receitas;
+    }
+
+    public void setReceitas(List<Receita> receitas) {
+        this.receitas = receitas;
+    }
+
+    public void addReceita(Receita receita) {
+        this.receitas.add(receita);
+    }
+
+    public void removeReceita(Receita receita) {
+        this.receitas.remove(receita);
+    }
+
+    public List<Exame> getExames() {
+        return exames;
+    }
+
+    public void setExames(List<Exame> exames) {
+        this.exames = exames;
+    }
 
     public Consulta() {}
 
@@ -22,6 +52,17 @@ public class Consulta {
         this.paciente = paciente;
     }
     
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
+    public Recepcionista getRecepcionista() {
+        return recepcionista;
+    }
+
+    public void setRecepcionista(Recepcionista recepcionista) {
+        this.recepcionista = recepcionista;
+    }
 
     public LocalDate getData() {
         return data;

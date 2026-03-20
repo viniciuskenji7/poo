@@ -1,11 +1,16 @@
 package com.exercicio02;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Medico {
     private String nome;
     private String crm;
     private String telefone;
     private String especialidade;
     private String senha;
+    private List<Consulta> consultas = new ArrayList<>();
+    
 
     public Medico(){}
 
@@ -34,6 +39,22 @@ public class Medico {
     
     public String getNome() {
         return nome;
+    }
+
+    public List<Consulta> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
+    }
+
+    public void addConsulta(Consulta consulta) {
+        this.consultas.add(consulta);
+    }
+
+    public void removeConsulta(Consulta consulta) {
+        this.consultas.remove(consulta);
     }
 
     public void setNome(String nome) throws Exception {
@@ -104,4 +125,6 @@ public class Medico {
         System.out.println("Telefone: " + getTelefone());
         System.out.println("Especialidade: " + getEspecialidade());
     }
+
+    
 }

@@ -1,12 +1,41 @@
 package com.exercicio02;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Paciente {
     private String nome;
+    private Recepcionista recepcionista;
     private String cpf;
     private String telefone;
     private String genero;
     private int idade;
     private String email;
+    private List<Consulta> consultas = new ArrayList<>();
+
+    public Recepcionista getRecepcionista() {
+        return recepcionista;
+    }
+
+    public void setRecepcionista(Recepcionista recepcionista) {
+        this.recepcionista = recepcionista;
+    }
+
+    public List<Consulta> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
+    }
+
+    public void addConsulta(Consulta consulta) {
+        this.consultas.add(consulta);
+    }
+
+    public void removeConsulta(Consulta consulta) {
+        this.consultas.remove(consulta);
+    }
     
     public Paciente(String nome, String cpf, String telefone, String genero, int idade) {
         try {
@@ -104,4 +133,6 @@ public class Paciente {
             this.email = email;
         }
     }
+
+    
 }
