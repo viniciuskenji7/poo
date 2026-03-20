@@ -12,10 +12,14 @@ public class Receita {
     public Receita() {
     }
 
-    public Receita(Consulta consulta, LocalDate data, String descritivo) {
-        this.consulta = consulta;
-        this.data = data;
-        this.descritivo = descritivo;
+    public Receita(Consulta consulta, LocalDate data, String descritivo) throws Exception {
+        try {
+            this.setConsulta(consulta);
+            this.setData(data, consulta);
+            this.setDescritivo(descritivo);
+        } catch (Exception e) {
+            System.out.println("Erro ao criar Receita: " + e.getMessage());
+        }
     }
 
     public void preescrever() {
@@ -32,7 +36,7 @@ public class Receita {
         return consulta;
     }
 
-    public void setConsulta(Consulta consulta) {
+    public void setConsulta(Consulta consulta) throws Exception {
         this.consulta = consulta;
     }
 
@@ -40,7 +44,10 @@ public class Receita {
         return data;
     }
 
-    public void setData(LocalDate data) {
+    public void setData(LocalDate data, Consulta dataConsulta) throws Exception {
+        if (!data.equals(dataConsulta.getData())) {
+            throw new Exception("Data inválida");
+        }
         this.data = data;
     }
 

@@ -1,27 +1,66 @@
 package com.exercicio02;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Medico {
     private String nome;
     private String crm;
     private String telefone;
     private String especialidade;
     private String senha;
+    private List<Consulta> consultas = new ArrayList<>();
+    
 
     public Medico(){}
 
+    public boolean possuiEspeciais(String s) {
+        if (s == null || s.isEmpty()) return false;
+        
+        for (char c : s.toCharArray()) {
+            if (!Character.isLetterOrDigit(c)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Medico(String crm, String especialidade, String nome, String senha, String telefone) {
-        this.crm = crm;
-        this.especialidade = especialidade;
-        this.nome = nome;
-        this.senha = senha;
-        this.telefone = telefone;
+        try {
+            this.setCrm(crm);
+            this.setNome(nome);
+            this.setTelefone(telefone);
+            this.setEspecialidade(especialidade);
+            this.setSenha(senha);
+        } catch (Exception e) {
+            System.out.println("Erro ao criar Médico: " + e.getMessage());
+        }
     }
     
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) {
+    public List<Consulta> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
+    }
+
+    public void addConsulta(Consulta consulta) {
+        this.consultas.add(consulta);
+    }
+
+    public void removeConsulta(Consulta consulta) {
+        this.consultas.remove(consulta);
+    }
+
+    public void setNome(String nome) throws Exception {
+        if (nome == null || nome.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.nome = nome;
     }
 
@@ -29,15 +68,22 @@ public class Medico {
         return crm;
     }
 
-    public void setCrm(String crm) {
-        this.crm = crm;
+    public void setCrm(String crm) throws Exception {
+        if(crm.length() < 6 || crm.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        } else {
+            this.crm = crm;
+        }
     }
 
     public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(String telefone) {
+    public void setTelefone(String telefone) throws Exception {
+        if (telefone.length() < 11 || telefone.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.telefone = telefone;
     }
 
@@ -45,7 +91,10 @@ public class Medico {
         return especialidade;
     }
 
-    public void setEspecialidade(String especialidade) {
+    public void setEspecialidade(String especialidade) throws Exception {
+        if (especialidade == null || especialidade.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         this.especialidade = especialidade;
     }
 
@@ -53,9 +102,13 @@ public class Medico {
         return senha;
     }
 
-    public String setSenha(String senha) {
+    public String setSenha(String senha) throws Exception {
+        if (senha.length() < 8 || !possuiEspeciais(senha)) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        }
         return this.senha = senha;
     }
+
 
     public void acessar(String senha) {
         if (this.senha.equals(senha)) {
@@ -67,9 +120,11 @@ public class Medico {
 
     //Adicionar em uma interface futuramente
     public void mostrar() {
-        System.out.println("Nome: " + this.nome);
-        System.out.println("CPF: " + this.crm);
-        System.out.println("Telefone: " + this.telefone);
-        System.out.println("Genero: " + this.especialidade);
+        System.out.println("Nome: " + getNome());
+        System.out.println("CRM: " + getCrm());
+        System.out.println("Telefone: " + getTelefone());
+        System.out.println("Especialidade: " + getEspecialidade());
     }
+
+    
 }

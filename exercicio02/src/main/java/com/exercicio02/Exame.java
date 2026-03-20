@@ -7,8 +7,6 @@ public class Exame {
     private LocalDate data;
     private String descritivo;
 
-    
-
     public Exame(Consulta consulta, LocalDate data, String descritivo) {
         this.consulta = consulta;
         this.data = data;
@@ -38,8 +36,12 @@ public class Exame {
         return descritivo;
     }
 
-    public void setDescritivo(String descritivo) {
-        this.descritivo = descritivo;
+    public void setDescritivo(String descritivo) throws Exception {
+        if (descritivo.length() <= 2 || descritivo.trim().isEmpty()) {
+            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        } else {
+            this.descritivo = descritivo;
+        }
     }
 
     public void solicitar() {

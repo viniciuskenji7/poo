@@ -2,6 +2,8 @@ package com.exercicio02;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Agenda {
     // Preciso implementar Interface futuramente
@@ -9,6 +11,7 @@ public class Agenda {
     private LocalTime hora;
     private Medico medico;
     private Paciente paciente;
+    private List<Consulta> consultas = new ArrayList<>();
 
     public Agenda(LocalDate data, LocalTime hora, Medico medico, Paciente paciente) {
         this.data = data;
@@ -20,6 +23,21 @@ public class Agenda {
     public Agenda() {
     }
 
+    public List<Consulta> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
+    }
+
+    public void addConsulta(Consulta consulta) {
+        this.consultas.add(consulta);
+    }
+
+    public void removeConsulta(Consulta consulta) {
+        this.consultas.remove(consulta);
+    }
     
 
     public void setData(LocalDate data) {
@@ -40,7 +58,10 @@ public class Agenda {
 
 
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(Paciente paciente, String cpfDigitado) throws Exception {
+        if(!cpfDigitado.equals(paciente.getCpf())) {
+            throw new Exception("O CPF informado é inválido");
+        }
         this.paciente = paciente;
     }
 
