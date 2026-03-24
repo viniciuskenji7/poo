@@ -16,22 +16,18 @@ public class Recepcionista {
         return false;
     }
     
-    public Recepcionista(String nome, String cpf, String telefone, String senha) {
-        try {
-            this.setNome(nome);
-            this.setCpf(cpf);
-            this.setSenha(senha);
-            this.setTelefone(telefone);
-        } catch (Exception e) {
-            System.out.println("Erro ao criar Recepcionista - " + e.getMessage());
-        }
+    public Recepcionista(String nome, String cpf, String telefone, String senha) throws Exception {
+        setNome(nome);
+        setCpf(cpf);
+        setSenha(senha);
+        setTelefone(telefone);
     }
 
     public String getNome() {
         return nome;
     }
 
-    public void setNome(String nome) throws Exception {
+    public final void setNome(String nome) throws Exception {
         if (nome == null || nome.trim().isEmpty()) {
             throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
         }
@@ -42,7 +38,7 @@ public class Recepcionista {
         return cpf;
     }
 
-    public void setCpf(String cpf) throws Exception {
+    public final void setCpf(String cpf) throws Exception {
         if (cpf.length() < 11 || cpf.trim().isEmpty()) {
             throw new Exception("Este CPF é inválido");
         }
@@ -53,7 +49,7 @@ public class Recepcionista {
         return telefone;
     }
 
-    public void setTelefone(String telefone) throws Exception {
+    public final void setTelefone(String telefone) throws Exception {
         if (telefone.length() < 11 || telefone.trim().isEmpty()) {
             throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
         }
@@ -66,11 +62,11 @@ public class Recepcionista {
 
     public Recepcionista(){}
 
-    public String setSenha(String senha) throws Exception {
-        if (senha.length() < 8 || !possuiEspeciais(senha)) {
+    public final void setSenha(String senha) throws Exception {
+        if (senha.length() < 8 || !possuiEspeciais(senha) || senha.length() < 8) {
             throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
         }
-        return this.senha = senha;
+        this.senha = senha;
     }
 
     public void acessar(String senha) {
