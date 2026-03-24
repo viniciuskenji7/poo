@@ -1,4 +1,4 @@
-package com.exercicio02;
+package com.exercicio02.model;
 public class Recepcionista {
     private String nome;
     private String cpf;

@@ -1,4 +1,4 @@
-package com.exercicio02;
+package com.exercicio02.model;
 
 import java.util.ArrayList;
 import java.util.List;
