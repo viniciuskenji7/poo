@@ -15,6 +15,7 @@ public class Consulta {
     private String historico;
     private List<Receita> receitas = new ArrayList<>();
     private List<Exame> exames = new ArrayList<>();
+    private StatusConsulta status;
 
     public List<Receita> getReceitas() {
         return receitas;
@@ -127,15 +128,15 @@ public class Consulta {
     }
 
     public void marcar() {
-
+        this.status = StatusConsulta.MARCADA;
     }
 
     public void cancelar() {
-
+        this.status = StatusConsulta.CANCELADA;
     }
 
     public void realizar() {
-
+        this.status = StatusConsulta.REALIZADA;
     }
 
     public void atualizar() {
