@@ -3,42 +3,14 @@ package com.exercicio02.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Medico {
-    private String nome;
+public class Medico extends Funcionario {
     private String crm;
-    private String telefone;
     private String especialidade;
-    private String senha;
     private List<Consulta> consultas = new ArrayList<>();
-    
 
-    public Medico(){}
-
-    public boolean possuiEspeciais(String s) {
-        if (s == null || s.isEmpty()) return false;
-        
-        for (char c : s.toCharArray()) {
-            if (!Character.isLetterOrDigit(c)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public Medico(String crm, String especialidade, String nome, String senha, String telefone) {
-        try {
-            this.setCrm(crm);
-            this.setNome(nome);
-            this.setTelefone(telefone);
-            this.setEspecialidade(especialidade);
-            this.setSenha(senha);
-        } catch (Exception e) {
-            System.out.println("Erro ao criar Médico: " + e.getMessage());
-        }
-    }
-    
-    public String getNome() {
-        return nome;
+    public Medico(String crm, String especialidade, String nome, String senha, String telefone) throws Exception {
+        super(nome, telefone, senha);
+        this.setEspecialidade(especialidade);
     }
 
     public List<Consulta> getConsultas() {
@@ -57,13 +29,6 @@ public class Medico {
         this.consultas.remove(consulta);
     }
 
-    public void setNome(String nome) throws Exception {
-        if (nome == null || nome.trim().isEmpty()) {
-            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
-        }
-        this.nome = nome;
-    }
-
     public String getCrm() {
         return crm;
     }
@@ -76,17 +41,6 @@ public class Medico {
         }
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) throws Exception {
-        if (telefone.length() < 11 || telefone.trim().isEmpty()) {
-            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
-        }
-        this.telefone = telefone;
-    }
-
     public String getEspecialidade() {
         return especialidade;
     }
@@ -96,26 +50,6 @@ public class Medico {
             throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
         }
         this.especialidade = especialidade;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public String setSenha(String senha) throws Exception {
-        if (senha.length() < 8 || !possuiEspeciais(senha)) {
-            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
-        }
-        return this.senha = senha;
-    }
-
-
-    public void acessar(String senha) {
-        if (this.senha.equals(senha)) {
-            System.out.println("Login efetuado com sucesso");
-        } else {
-            System.out.println("Login incorreto");
-        }
     }
 
     //Adicionar em uma interface futuramente

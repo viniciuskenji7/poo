@@ -36,7 +36,7 @@ public class Receita {
         return consulta;
     }
 
-    public void setConsulta(Consulta consulta) throws Exception {
+    public final void setConsulta(Consulta consulta) throws Exception {
         this.consulta = consulta;
     }
 
@@ -44,7 +44,7 @@ public class Receita {
         return data;
     }
 
-    public void setData(LocalDate data, Consulta dataConsulta) throws Exception {
+    public final void setData(LocalDate data, Consulta dataConsulta) throws Exception {
         if (!data.equals(dataConsulta.getData())) {
             throw new Exception("Data inválida");
         }
@@ -55,7 +55,7 @@ public class Receita {
         return descritivo;
     }
 
-    public void setDescritivo(String descritivo) {
+    public final void setDescritivo(String descritivo) {
         this.descritivo = descritivo;
     }
 }
