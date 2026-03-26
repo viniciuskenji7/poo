@@ -44,13 +44,9 @@ public class Agenda {
         this.data = data;
     }
 
-
-
     public void setHora(LocalTime hora) {
         this.hora = hora;
     }
-
-
 
     public void setMedico(Medico medico) {
         this.medico = medico;

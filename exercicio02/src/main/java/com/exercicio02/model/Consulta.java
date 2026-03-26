@@ -16,7 +16,6 @@ public class Consulta {
     private List<Receita> receitas = new ArrayList<>();
     private List<Exame> exames = new ArrayList<>();
 
-
     public List<Receita> getReceitas() {
         return receitas;
     }
@@ -41,6 +40,14 @@ public class Consulta {
         this.exames = exames;
     }
 
+    public void addExame(Exame exame) {
+        this.exames.add(exame);
+    }
+
+    public void removeExame(Exame exame) {
+        this.exames.remove(exame);
+    }
+
     public Consulta() {}
 
     public Consulta(LocalDate data, String historico, LocalTime hora, Medico medico, String motivo, Paciente paciente) {
@@ -50,10 +57,6 @@ public class Consulta {
         this.medico = medico;
         this.motivo = motivo;
         this.paciente = paciente;
-    }
-    
-    public void setMedico(Medico medico) {
-        this.medico = medico;
     }
 
     public Recepcionista getRecepcionista() {
