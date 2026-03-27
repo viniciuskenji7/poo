@@ -1,6 +1,6 @@
 package com.exercicio02.models;
 
-public class Funcionario {
+public abstract class Funcionario {
     private String nome;
     private String telefone;
     private String senha;

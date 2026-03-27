@@ -2,7 +2,7 @@ package com.exercicio02.models;
 
 import java.time.LocalDate;
 
-public class Procedimento {
+public abstract class Procedimento {
     private LocalDate data;
     private String descritivo;
     private Consulta consulta;
