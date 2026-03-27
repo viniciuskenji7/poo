@@ -5,6 +5,12 @@ public abstract class Funcionario {
     private String telefone;
     private String senha;
 
+    public Funcionario(String nome, String telefone, String senha) throws Exception {
+        setNome(nome);
+        setTelefone(telefone);
+        setSenha(senha);
+    }
+
     public boolean possuiEspeciais(String s) {
         if (s == null || s.isEmpty()) return false;
 
@@ -21,8 +27,8 @@ public abstract class Funcionario {
     }
 
     public final void setNome(String nome) throws Exception {
-        if (nome == null || nome.trim().isEmpty()) {
-            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+        if (nome == null) {
+            throw new Exception("f");
         }
         this.nome = nome;
     }
@@ -33,7 +39,7 @@ public abstract class Funcionario {
 
     public final void setTelefone(String telefone) throws Exception {
         if (telefone.length() < 11 || telefone.trim().isEmpty()) {
-            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+            throw new Exception("d");
         }
         this.telefone = telefone;
     }
@@ -44,15 +50,9 @@ public abstract class Funcionario {
 
     public final void setSenha(String senha) throws Exception {
         if (senha.length() < 8 || !possuiEspeciais(senha) || senha.length() < 8) {
-            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+            throw new Exception("c");
         }
         this.senha = senha;
-    }
-
-    public Funcionario(String nome, String telefone, String senha) throws Exception {
-        setNome(this.nome);
-        setTelefone(this.telefone);
-        setSenha(this.senha);
     }
 
     public void acessar(String senha) {
@@ -62,4 +62,10 @@ public abstract class Funcionario {
             System.out.println("Login incorreto");
         }
     }
+    
+    public void mostrar() {
+        System.out.println("Nome do Funcionário: " + getNome() + "\nTelefone: " + getTelefone());;
+    }
+
+
 }

@@ -7,8 +7,6 @@ public class Recepcionista extends Funcionario {
     public Recepcionista(String nome, String cpf, String telefone, String senha) throws Exception {
         super(nome, telefone, senha);
         setCpf(cpf);
-        setSenha(senha);
-        setTelefone(telefone);
     }
 
     public String getCpf() {
@@ -22,10 +20,10 @@ public class Recepcionista extends Funcionario {
         this.cpf = cpf;
     }
 
-    //Adicionar em uma interface futuramente
+    @Override
     public void mostrar() {
-        System.out.println("Nome: " + getNome());
-        System.out.println("CPF: " + this.cpf);
-        System.out.println("Telefone: " + getTelefone());
+        super.mostrar();
+        System.out.println("CPF do Funcionário: " + getCpf());
     }
+
 }

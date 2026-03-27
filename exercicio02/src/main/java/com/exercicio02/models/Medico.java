@@ -11,6 +11,7 @@ public class Medico extends Funcionario {
     public Medico(String crm, String especialidade, String nome, String senha, String telefone) throws Exception {
         super(nome, telefone, senha);
         this.setEspecialidade(especialidade);
+        this.setCrm(crm);
     }
 
     public List<Consulta> getConsultas() {
@@ -35,7 +36,7 @@ public class Medico extends Funcionario {
 
     public void setCrm(String crm) throws Exception {
         if(crm.length() < 6 || crm.trim().isEmpty()) {
-            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+            throw new Exception("b");
         } else {
             this.crm = crm;
         }
@@ -47,18 +48,15 @@ public class Medico extends Funcionario {
 
     public void setEspecialidade(String especialidade) throws Exception {
         if (especialidade == null || especialidade.trim().isEmpty()) {
-            throw new Exception("Ocorreu uma exceção - Valores padrões definidos");
+            throw new Exception("a");
         }
         this.especialidade = especialidade;
     }
 
-    //Adicionar em uma interface futuramente
+    @Override
     public void mostrar() {
-        System.out.println("Nome: " + getNome());
-        System.out.println("CRM: " + getCrm());
-        System.out.println("Telefone: " + getTelefone());
-        System.out.println("Especialidade: " + getEspecialidade());
+        super.mostrar();
+        System.out.println("CRM do Médico: " + getCrm());
     }
 
-    
 }
