@@ -1,4 +1,4 @@
-package com.exercicio02.model;
+package com.exercicio02.models;
 
 public enum StatusConsulta {
     MARCADA,
